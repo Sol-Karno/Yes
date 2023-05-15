@@ -1,0 +1,12 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'service_cbv:service_list' %}">Service CBV</a>: Edit</h2>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

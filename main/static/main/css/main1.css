@@ -1,0 +1,21 @@
+body{
+background-image: url(bg_main.png);
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+}
+footer{
+background: #fff;
+height: 90px;
+}
+imgs{
+display: flex;
+justify-content: space-evenly;
+width: 80vw;
+margin-left: 10vw;
+margin-top:10vh;
+padding: 10px;
+}
+cont{
+min-height:77.5%;
+}

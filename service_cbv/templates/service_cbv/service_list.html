@@ -1,0 +1,18 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'service_cbv:service_list' %}">Service CBV</a></h2>
+
+<ul>
+    {% for service in object_list %}
+    <li>{{ service.title }}  ({{ service.price }} рубля(-ей))
+    <a href="{% url 'service_cbv:service_edit' service.id %}">edit</a>
+    <a href="{% url 'service_cbv:service_delete' service.id %}">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'service_cbv:service_new' %}">New</a>
+
+{% endblock %}

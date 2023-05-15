@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main1.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'homepage' %}">
+        <img src="{% static 'main/img/Winner.png' %}" alt="Winner-logo" width="35" height="50">
+        Winner
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog' %}">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'feedback' %}">Отзывы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">Наши партнёры</a>
+        </li>
+      </ul>
+    </div>
+      <a href="{% url 'service_cbv' %}">Создание услуги</a>
+      {% if request.user.is_authenticated %}
+      <li class="last"> {{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+      {% else %}
+      <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+      {% endif %}
+  </div>
+</nav>
+    {% block content %}
+    {% endblock %}
+</body>
+<footer class="text-center">
+        <p> Для сотрудничества вы можете воспользоваться страницей "Наши партнёры"</p>
+        <p>Eсли же у вас возникли вопросы, то можете задать их нашей службе поддержки по телефону +7(XXX)XXX-XX-XX</p>
+</footer>
+</html>
